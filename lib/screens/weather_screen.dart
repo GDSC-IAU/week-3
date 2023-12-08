@@ -1,8 +1,6 @@
 // screens/weather_screen.dart
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../widgets/location_input.dart';
 import '../widgets/weather_card.dart';
 import 'dart:math';
@@ -13,15 +11,13 @@ class WeatherScreen extends StatefulWidget {
 }
 
 class _WeatherScreenState extends State<WeatherScreen> {
-  String enteredLocation = '';
+  String enteredLocation = 'saudi arabia';
   String currentTemperature = '20°C'; // default value
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //the app bar
       appBar: AppBar(
-        //the text style and stuff
         title: Text(
           'Weather App',
           style: GoogleFonts.openSans(
@@ -30,8 +26,6 @@ class _WeatherScreenState extends State<WeatherScreen> {
             fontSize: 20,
           ),
         ),
-
-        //the image/icon :))
         leading: Image.asset(
           'assets/example/images/forecast_weather.png',
           width: 40,
@@ -39,74 +33,100 @@ class _WeatherScreenState extends State<WeatherScreen> {
         ),
       ),
 
-      //the body
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Container(
-                  //adds the shadow<3
-                  decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        blurRadius: 20,
-                        offset: const Offset(0, 5),
-                      ),
-                    ],
-                    borderRadius: BorderRadius.circular(8),
+      // body
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+
+              //add a shadow
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.8),
+                    blurRadius: 20,
+                    offset: const Offset(0, 5),
+                  ),
+                ],
+                borderRadius: BorderRadius.circular(8),
+              ),
+
+              child: Column(
+                children: [
+                  // the divider
+                  SizedBox(height: 16),
+                  _buildRoundedContainerWithText('Check the weather!'),
+
+                  // temperature image
+                  _buildTemperatureImage(currentTemperature),
+
+                  LocationInput(
+                    onLocationChanged: (location) {
+                      setState(() {
+                        enteredLocation = location;
+                        currentTemperature = _getFakeWeatherData(location);
+                      });
+                    },
                   ),
 
-                  child: Column(
-                    children: [
-                      //the title/divider
-                      SizedBox(height: 16),
-                      _buildRoundedContainerWithText('Cheack the weather!'),
-
-                      //the location
-                      LocationInput(
-                        onLocationChanged: (location) {
-                          setState(() {
-                            enteredLocation = location;
-
-                            //gets fake value for the temperature :))
-                            currentTemperature = _getFakeWeatherData(location);
-                          });
-                        },
-                      ),
-
-                      SizedBox(height: 0),
-                      WeatherCard(
-                        location: enteredLocation,
-                        temperature: currentTemperature,
-                      ),
-
-                      //the divider
-                      SizedBox(height: 16),
-                      _buildRoundedContainerWithText(''),
-                    ],
+                  SizedBox(height: 16),
+                  WeatherCard(
+                    location: enteredLocation,
+                    temperature: currentTemperature,
                   ),
-                ),
-              ],
+
+                  SizedBox(height: 16),
+                  _buildRoundedContainerWithText(''),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 
   String _getFakeWeatherData(String location) {
-    //i can replace this later with a real api i think...?
-
-    final randomTemperature = Random().nextInt(11) + 20;
+    final randomTemperature = Random().nextInt(11) + 22;
     return '$randomTemperature°C';
   }
 
-  //the title box for looks
+  Widget _buildTemperatureImage(String currentTemperature) {
+
+
+    double parsedTemperature = double.tryParse(currentTemperature.replaceAll('°C', '')) ?? 0;
+
+ if (parsedTemperature < 25) {
+      return Image.asset(
+        'assets/example/images/temperature_25.png',
+        width: 200,
+        height: 200,
+      );
+    } else if (parsedTemperature <= 30) {
+      return Image.asset(
+        'assets/example/images/temperature_30.png',
+        width: 200,
+        height: 200,
+      );
+    } else if (parsedTemperature <= 35) {
+      return Image.asset(
+        'assets/example/images/temperature_toohigh.png',
+        width: 200,
+        height: 200,
+      );
+      //defult
+    } else {
+      return Image.asset(
+        'assets/example/images/temperature_defult.png',
+        width: 200,
+        height: 200,
+      );
+    }
+  }
+
   Widget _buildRoundedContainerWithText(String text) {
     return Container(
       width: 450,
