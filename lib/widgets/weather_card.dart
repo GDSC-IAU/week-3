@@ -1,4 +1,4 @@
-// widgets/weather_card.dart
+
 import 'package:flutter/material.dart';
 
 class WeatherCard extends StatelessWidget {
@@ -14,7 +14,7 @@ class WeatherCard extends StatelessWidget {
 
       // the card
       child: Card(
-        color: Colors.pink[100] ?? Colors.pink.withOpacity(0.5), // Set your desired color here
+        color: Colors.pink[100] ?? Colors.pink.withOpacity(0.5),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
         ),
@@ -26,10 +26,10 @@ class WeatherCard extends StatelessWidget {
               Center(
                 child: Text(
                   'Location: $location',
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 243, 105, 151),), // Adjust text color
+                      color: Color.fromARGB(255, 243, 105, 151),),
                 ),
               ),
 
@@ -38,8 +38,8 @@ class WeatherCard extends StatelessWidget {
               Center(
                 child: Text(
                   'Temperature: $temperature',
-                  style: TextStyle(
-                      fontSize: 16, color: Color.fromARGB(255, 243, 105, 151),), // Adjust text color
+                  style: const TextStyle(
+                      fontSize: 16, color: Color.fromARGB(255, 243, 105, 151),), 
                 ),
               ),
             ],
