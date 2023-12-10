@@ -18,6 +18,8 @@ class _WeatherScreenState extends State<WeatherScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      //the appbar
       appBar: AppBar(
         title: Text(
           'Weather App',
@@ -33,6 +35,9 @@ class _WeatherScreenState extends State<WeatherScreen> {
           height: 40,
         ),
       ),
+
+
+
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -43,16 +48,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
               child: Column(
                 children: [
                   Container(
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.8),
-                          blurRadius: 15,
-                          offset: const Offset(0, 8),
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(8),
-                    ),
+                    //divider
                     child: const Column(
                       children: [
                         SizedBox(height: 16),
@@ -60,23 +56,36 @@ class _WeatherScreenState extends State<WeatherScreen> {
                       ],
                     ),
                   ),
+
+
+                  //temp image changes depending on the temp
                   TemperatureImage(currentTemperature: currentTemperature),
                   Container(
                     padding: const EdgeInsets.all(16),
+
+                    //the loc input and the weather card
+
+                    //the box under
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 224, 68, 120).withOpacity(0.2),
                       borderRadius: BorderRadius.circular(8),
                     ),
+
                     child: Column(
                       children: [
+
+                        //the input for location
                         LocationInput(
                           onLocationChanged: (location) {
                             setState(() {
                               enteredLocation = location;
+                              
                               currentTemperature = WeatherData.getFakeWeatherData(location);
                             });
                           },
                         ),
+
+                        //the out put for location and temp
                         SizedBox(height: 16),
                         WeatherCard(
                           location: enteredLocation,
@@ -85,21 +94,14 @@ class _WeatherScreenState extends State<WeatherScreen> {
                       ],
                     ),
                   ),
+
+                  
                   Container(
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.8),
-                          blurRadius: 15,
-                          offset: const Offset(0, 8),
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(8),
-                    ),
+                    //divider
                     child: const Column(
                       children: [
                         SizedBox(height: 16),
-                        RoundedContainer(text: 'Check the weather!'),
+                        RoundedContainer(text: '˚ʚ♡ɞ˚'),
                       ],
                     ),
                   ),

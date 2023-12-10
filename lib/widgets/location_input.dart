@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class LocationInput extends StatefulWidget {
@@ -16,9 +15,7 @@ class _LocationInputState extends State<LocationInput> {
   @override
   Widget build(BuildContext context) {
     return Container(
-
       width: 350,
-      
       padding: EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
         color: Colors.pink[100] ?? Colors.pink.withOpacity(0.5),
@@ -27,7 +24,7 @@ class _LocationInputState extends State<LocationInput> {
       child: Row(
         children: [
           Expanded(
-            child:  TextField(
+            child: TextField(
               controller: _locationController,
               decoration: const InputDecoration(
                 hintText: 'Enter location',
@@ -46,8 +43,9 @@ class _LocationInputState extends State<LocationInput> {
                 borderRadius: BorderRadius.circular(8),
               ),
             ),
-            child: const Text('Submit'
-            ,style: TextStyle(color: Colors.white),
+            child: const Text(
+              'Submit',
+              style: TextStyle(color: Colors.white),
             ),
           ),
         ],
