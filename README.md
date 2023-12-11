@@ -1,3 +1,6 @@
+| ![Alt text](screenshots/DarkMode.png) | ![Alt text](screenshots/LightMode.png) |
+| ------------------------------------- | -------------------------------------- |
+
 # Week 3: Flutter Basics
 
 ## Overview
@@ -140,15 +143,15 @@ Scaffold(
 
 #### [Row](https://api.flutter.dev/flutter/widgets/Row-class.html)
 
-  ```dart
-  Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: const [
-      Text('Hello'),
-      Text('World'),
-    ],
-  );
-  ```
+```dart
+Row(
+  mainAxisAlignment: MainAxisAlignment.center,
+  children: const [
+    Text('Hello'),
+    Text('World'),
+  ],
+);
+```
 
 - The `Row` widget is a widget that displays its children in a horizontal array.
 - The `Row` widget has a `mainAxisAlignment` property that takes a `MainAxisAlignment` enum. This is how the children of the row will be aligned.
@@ -174,17 +177,17 @@ Column(
 
 #### [Container](https://api.flutter.dev/flutter/widgets/Container-class.html)
 
-  ```dart
-  Container(
-    width: 100,
-    height: 100,
-    color: Colors.blue,
-    decoration: const BoxDecoration(
-      shape: BoxShape.circle,
-    ),
-    child: const Text('Hello World!'),
-  );
-  ```
+```dart
+Container(
+  width: 100,
+  height: 100,
+  color: Colors.blue,
+  decoration: const BoxDecoration(
+    shape: BoxShape.circle,
+  ),
+  child: const Text('Hello World!'),
+);
+```
 
 - The `Container` widget is a widget that allows you to customize the size, color, and child of a widget.
 - The `Container` widget has a `width` property that takes a double. This is the width of the container.
@@ -252,7 +255,7 @@ CircleAvatar(
 - Add the following code to the `assets` section:
 
 ```yaml
-  - assets/images/
+- assets/images/
 ```
 
 - This will tell Flutter to look in the `assets/images/` folder for any assets that you want to use in your app
