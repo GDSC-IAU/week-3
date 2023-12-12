@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../widgets/location_input.dart';
-import '../widgets/weather_card.dart';
-import '../widgets/temperature_image.dart';
-import '../widgets/weather_data.dart';
-import '../widgets/rounded_container.dart';
+import '../screens/widgets/location_input.dart';
+import '../screens/widgets/rounded_container.dart';
+import '../screens/widgets/temperature_image.dart';
+import '../screens/widgets/weather_card.dart';
+import '../screens/widgets/weather_data.dart';
 
 class WeatherScreen extends StatefulWidget {
   @override
@@ -18,7 +18,6 @@ class _WeatherScreenState extends State<WeatherScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       //the appbar
       appBar: AppBar(
         title: Text(
@@ -35,8 +34,6 @@ class _WeatherScreenState extends State<WeatherScreen> {
           height: 40,
         ),
       ),
-
-
 
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -57,7 +54,6 @@ class _WeatherScreenState extends State<WeatherScreen> {
                     ),
                   ),
 
-
                   //temp image changes depending on the temp
                   TemperatureImage(currentTemperature: currentTemperature),
                   Container(
@@ -67,20 +63,21 @@ class _WeatherScreenState extends State<WeatherScreen> {
 
                     //the box under
                     decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 224, 68, 120).withOpacity(0.2),
+                      color: const Color.fromARGB(255, 224, 68, 120)
+                          .withOpacity(0.2),
                       borderRadius: BorderRadius.circular(8),
                     ),
 
                     child: Column(
                       children: [
-
                         //the input for location
                         LocationInput(
                           onLocationChanged: (location) {
                             setState(() {
                               enteredLocation = location;
-                              
-                              currentTemperature = WeatherData.getFakeWeatherData(location);
+
+                              currentTemperature =
+                                  WeatherData.getFakeWeatherData(location);
                             });
                           },
                         ),
@@ -95,7 +92,6 @@ class _WeatherScreenState extends State<WeatherScreen> {
                     ),
                   ),
 
-                  
                   Container(
                     //divider
                     child: const Column(
