@@ -5,11 +5,11 @@ class WeatherCard extends StatelessWidget {
   final String location;
   final String temperature;
 
-  WeatherCard({required this.location, required this.temperature});
+  const WeatherCard({super.key, required this.location, required this.temperature});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 355,
 
       // the card
@@ -33,7 +33,7 @@ class WeatherCard extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               
               Center(
                 child: Text(

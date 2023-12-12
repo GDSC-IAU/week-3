@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class TemperatureImage extends StatelessWidget {
   final String currentTemperature;
 
-  TemperatureImage({required this.currentTemperature});
+  const TemperatureImage({super.key, required this.currentTemperature});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class TemperatureImage extends StatelessWidget {
       );
     } else if (parsedTemperature <= 35) {
       return Image.asset(
-        'assets/example/images/temperature_toohigh.png',
+        'assets/example/images/temperature_too_high.png',
         width: 200,
         height: 200,
       );
