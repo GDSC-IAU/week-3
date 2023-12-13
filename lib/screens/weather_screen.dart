@@ -5,6 +5,7 @@ import '../screens/widgets/rounded_container.dart';
 import '../screens/widgets/temperature_image.dart';
 import '../screens/widgets/weather_card.dart';
 import '../screens/widgets/weather_data.dart';
+import '../screens/widgets/country_list.dart';
 
 class WeatherScreen extends StatefulWidget {
   const WeatherScreen({super.key});
@@ -39,15 +40,16 @@ class _WeatherScreenState extends State<WeatherScreen> {
       ),
 
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(8.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+         mainAxisAlignment: MainAxisAlignment.center,
+         crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Column(
               children: [
                 const Column(
                   children: [
+                    
                     SizedBox(height: 16),
                     RoundedContainer(text: 'Check the weather!'),
                   ],
@@ -87,11 +89,18 @@ class _WeatherScreenState extends State<WeatherScreen> {
                         location: enteredLocation,
                         temperature: currentTemperature,
                       ),
+        
                     ],
                   ),
                 ),
-
-
+        
+        
+                //the country list
+                SizedBox(
+                height: 150,
+                child: CountryListWidget(),
+                ),
+        
                //divider            
                 const Column(
                   children: [
