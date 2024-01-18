@@ -1,24 +1,12 @@
 import 'package:flutter/material.dart';
+import '../../data/dummy_data.dart';
 
 class CountryListWidget extends StatelessWidget {
-  CountryListWidget({Key? key}) : super(key: key);
-
-  final Map<String, String> countryTemperatures = {
-    'Saudi Arabia': '25°C',
-    'China': '22°C',
-    'India': '30°C',
-    'Brazil': '28°C',
-    'Russia': '15°C',
-    'Japan': '26°C',
-    'Germany': '20°C',
-    'United Kingdom': '18°C',
-    'France': '21°C',
-    'Italy': '24°C',
-  };
+  const CountryListWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    const double boxWidth = 100.0; // Adjust the width as needed
+    const double boxWidth = 100.0; 
 
     return Container(
       padding: const EdgeInsets.all(8.0),
@@ -36,7 +24,6 @@ class CountryListWidget extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12.0),
               color: const Color.fromARGB(255, 243, 105, 151),
-
               boxShadow: [
                 BoxShadow(
                   color: const Color.fromARGB(255, 235, 167, 231).withOpacity(0.5),
@@ -50,15 +37,15 @@ class CountryListWidget extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-        SizedBox(
-        height: 20
-                  Text(
-                    countryName,
-                    overflow: TextOverflow.ellipses
-                    style: const TextStyle(fontSize: 16, color: Colors.white ,  fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.center,
-                    
-                  ),),
+                  SizedBox(
+                    height: 20,
+                    child: Text(
+                      countryName,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
                   const SizedBox(height: 8.0),
                   Text(
                     temperature,
