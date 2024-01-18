@@ -6,7 +6,7 @@ class LocationInput extends StatefulWidget {
   const LocationInput({super.key, required this.onLocationChanged});
 
   @override
-  _LocationInputState createState() => _LocationInputState();
+  State<LocationInput> createState() => _LocationInputState();
 }
 
 class _LocationInputState extends State<LocationInput> {
