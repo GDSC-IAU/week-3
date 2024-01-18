@@ -50,12 +50,15 @@ class CountryListWidget extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+        SizedBox(
+        height: 20
                   Text(
                     countryName,
+                    overflow: TextOverflow.ellipses
                     style: const TextStyle(fontSize: 16, color: Colors.white ,  fontWeight: FontWeight.bold),
                     textAlign: TextAlign.center,
                     
-                  ),
+                  ),),
                   const SizedBox(height: 8.0),
                   Text(
                     temperature,
